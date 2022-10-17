@@ -1,8 +1,8 @@
-print("Enter ip adress with mask (e.g. 192.168.10.0/27)")
+print("Enter ip adress with mask (e.g. 192.168.10.0/27):")
 ipwm = input()
-print("Enter how many subnets you need")
+print("Enter how many subnets you need:")
 subnets = int(input())
-print("Enter how many hosts per subnet")
+print("Enter how many hosts per subnet you need:")
 hosts = int(input())
 ip, mask = ipwm.split("/")
 
@@ -43,6 +43,9 @@ while subnets > 2 ** subnets_bits:
 hosts_bits = 0
 while hosts >= 2 ** hosts_bits:
     hosts_bits += 1
+
+print("Calculating:")
+print(f"IP: {ipwm}, Subnets: {subnets}, Hosts: {hosts}")
 
 with open('output.txt', 'w') as output_file:
     for x in range(subnets):
